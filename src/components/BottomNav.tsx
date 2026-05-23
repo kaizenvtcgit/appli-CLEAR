@@ -5,8 +5,7 @@ const items = [
   {to: '/', label: 'Jour'},
   {to: '/vide', label: 'Vider'},
   {to: '/valider', label: 'Valider'},
-  {to: '/responsabilites', label: 'Resp.'},
-  {to: '/params', label: 'Données'}
+  {to: '/responsabilites', label: 'Resp.'}
 ]
 
 export default function BottomNav(){

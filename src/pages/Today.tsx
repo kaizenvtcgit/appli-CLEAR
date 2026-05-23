@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { ActionItem } from '../types'
 import ActionCard from '../components/ActionCard'
 
@@ -21,6 +22,9 @@ export default function Today({actions,setActions}:Props){
     <div className="container">
       <div className="page-title">Aujourd’hui</div>
       <div className="page-subtitle">Regarde tes priorités d’un coup d’œil et avance sans surcharge.</div>
+      <div className="today-link">
+        <Link to="/params">Données stockées localement · Gérer mes données</Link>
+      </div>
       <div className="section-block">
         <div className="section-label">Urgent</div>
         {urgent.length===0 ? <div className="empty-state-card">Aucune action urgente.</div> : urgent.map(a=> <ActionCard key={a.id} action={a} onSave={saveOne} onDelete={deleteOne} />)}
