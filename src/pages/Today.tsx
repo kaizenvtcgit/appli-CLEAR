@@ -20,23 +20,22 @@ export default function Today({actions,setActions}:Props){
   return (
     <div className="container">
       <div className="page-title">Aujourd’hui</div>
-      <div style={{display:'flex',flexDirection:'column',gap:12}}>
-        <div>
-          <div className="muted">Urgent</div>
-          {urgent.length===0 ? <div className="muted">Aucune action urgente.</div> : urgent.map(a=> <ActionCard key={a.id} action={a} onSave={saveOne} onDelete={deleteOne} />)}
-        </div>
-        <div>
-          <div className="muted">En retard</div>
-          {overdue.length===0 ? <div className="muted">Aucune action en retard.</div> : overdue.map(a=> <ActionCard key={a.id} action={a} onSave={saveOne} onDelete={deleteOne} />)}
-        </div>
-        <div>
-          <div className="muted">À faire</div>
-          {todo.length===0 ? <div className="muted">Aucune action à faire.</div> : todo.map(a=> <ActionCard key={a.id} action={a} onSave={saveOne} onDelete={deleteOne} />)}
-        </div>
-        <div>
-          <div className="muted">Bloqué</div>
-          {blocked.length===0 ? <div className="muted">Aucune action bloquée.</div> : blocked.map(a=> <ActionCard key={a.id} action={a} onSave={saveOne} onDelete={deleteOne} />)}
-        </div>
+      <div className="page-subtitle">Regarde tes priorités d’un coup d’œil et avance sans surcharge.</div>
+      <div className="section-block">
+        <div className="section-label">Urgent</div>
+        {urgent.length===0 ? <div className="empty-state-card">Aucune action urgente.</div> : urgent.map(a=> <ActionCard key={a.id} action={a} onSave={saveOne} onDelete={deleteOne} />)}
+      </div>
+      <div className="section-block">
+        <div className="section-label">En retard</div>
+        {overdue.length===0 ? <div className="empty-state-card">Aucune action en retard.</div> : overdue.map(a=> <ActionCard key={a.id} action={a} onSave={saveOne} onDelete={deleteOne} />)}
+      </div>
+      <div className="section-block">
+        <div className="section-label">À faire</div>
+        {todo.length===0 ? <div className="empty-state-card">Aucune action à faire.</div> : todo.map(a=> <ActionCard key={a.id} action={a} onSave={saveOne} onDelete={deleteOne} />)}
+      </div>
+      <div className="section-block">
+        <div className="section-label">Bloqué</div>
+        {blocked.length===0 ? <div className="empty-state-card">Aucune action bloquée.</div> : blocked.map(a=> <ActionCard key={a.id} action={a} onSave={saveOne} onDelete={deleteOne} />)}
       </div>
     </div>
   )

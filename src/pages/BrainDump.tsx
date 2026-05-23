@@ -20,10 +20,11 @@ export default function BrainDump({actions,setActions}:Props){
   return (
     <div className="container">
       <div className="page-title">Vide ma tête</div>
+      <div className="page-subtitle">Transforme tes pensées en actions claires et gérables.</div>
       <div className="card">
-        <textarea rows={8} style={{width:'100%',padding:12,borderRadius:10,border:'1px solid var(--border)',fontSize:15}} value={text} onChange={e=>setText(e.target.value)} placeholder="Écrivez tout ce qui vous traverse l'esprit..."></textarea>
-        <div style={{display:'flex',justifyContent:'flex-end',marginTop:12}}>
-          <button onClick={transform} disabled={!text.trim()}>Transformer en actions</button>
+        <textarea className="textarea" rows={8} value={text} onChange={e=>setText(e.target.value)} placeholder="Écrivez tout ce qui vous traverse l'esprit..."></textarea>
+        <div style={{display:'flex',justifyContent:'flex-end',marginTop:16}}>
+          <button className="btn btn-primary" onClick={transform} disabled={!text.trim()}>Transformer en actions</button>
         </div>
       </div>
     </div>

@@ -26,11 +26,12 @@ export default function Settings({setActionsDump}:Props){
   return (
     <div className="container">
       <div className="page-title">Paramètres & Mes données</div>
+      <div className="page-subtitle">Garde le contrôle sur tes données locales et tes sauvegardes.</div>
       <div className="card">
         <p className="muted">Toutes les données sont stockées localement sur cet appareil dans cette version.</p>
-        <div style={{display:'flex',gap:8,marginTop:8}}>
-          <button onClick={handleExport}>Exporter mes données (JSON)</button>
-          <button onClick={handleClear}>Supprimer toutes mes données</button>
+        <div style={{display:'flex',flexDirection:'column',gap:10,marginTop:16}}>
+          <button className="btn btn-primary" onClick={handleExport}>Exporter mes données (JSON)</button>
+          <button className="btn btn-danger" onClick={handleClear}>Supprimer toutes mes données</button>
         </div>
       </div>
     </div>

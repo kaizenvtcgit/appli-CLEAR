@@ -24,22 +24,23 @@ export default function Responsibilities({actions,setActions}:Props){
   return (
     <div className="container">
       <div className="page-title">Responsabilités</div>
+      <div className="page-subtitle">Classe tes actions par domaine pour une charge mentale allégée.</div>
       {[...byCat.entries()].map(([cat,list])=> (
-        <div key={cat} style={{marginBottom:12}}>
-          <div style={{fontWeight:700,marginBottom:8}}>{cat}</div>
-          <div style={{display:'flex',flexDirection:'column',gap:8}}>
+        <div key={cat} className="section-block">
+          <div className="section-label">{cat}</div>
+          <div className="actions-list">
             {list.map(a=> (
               <div key={a.id}>
                 <ActionCard action={a} onSave={saveOne} onDelete={deleteOne} />
-                <div style={{marginTop:6}}>
-                  <button onClick={()=>archiveIfFinished(a)}>Archiver si terminé</button>
+                <div className="action-controls" style={{gap:12,marginTop:10}}>
+                  <button className="btn btn-secondary btn-small" onClick={()=>archiveIfFinished(a)}>Archiver si terminé</button>
                 </div>
               </div>
             ))}
           </div>
         </div>
       ))}
-      {validated.length===0 && <div className="muted">Aucune responsabilité validée.</div>}
+      {validated.length===0 && <div className="empty-state-card">Aucune responsabilité validée.</div>}
     </div>
   )
 }
