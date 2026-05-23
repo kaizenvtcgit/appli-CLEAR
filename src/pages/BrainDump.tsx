@@ -22,7 +22,7 @@ export default function BrainDump({actions,setActions}:Props){
       <div className="page-title">Vide ma tête</div>
       <div className="page-subtitle">Transforme tes pensées en actions claires et gérables.</div>
       <div className="card">
-        <textarea className="textarea" rows={8} value={text} onChange={e=>setText(e.target.value)} placeholder="Écrivez tout ce qui vous traverse l'esprit..."></textarea>
+        <textarea className="textarea" rows={8} value={text} onChange={e=>setText(e.target.value)} placeholder="Écris tout ce qui te pèse. Sans filtre."></textarea>
         <div style={{display:'flex',justifyContent:'flex-end',marginTop:16}}>
           <button className="btn btn-primary" onClick={transform} disabled={!text.trim()}>Transformer en actions</button>
         </div>

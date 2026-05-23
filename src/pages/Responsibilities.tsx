@@ -15,10 +15,8 @@ export default function Responsibilities({actions,setActions}:Props){
   function saveOne(a: ActionItem){ setActions(actions.map(x=> x.id===a.id? a:x)) }
   function deleteOne(id:string){ setActions(actions.filter(a=> a.id!==id)) }
 
-  function archiveIfFinished(a: ActionItem){
-    if (a.status === 'Terminé'){
-      setActions(actions.map(x=> x.id===a.id? {...x,status:'Archivé', updatedAt:new Date().toISOString()}:x))
-    }
+  function archiveIfFinished(id: string){
+    setActions(actions.map(x=> x.id===id && x.status === 'Terminé' ? {...x,status:'Archivé', updatedAt:new Date().toISOString()}:x))
   }
 
   return (
@@ -30,12 +28,7 @@ export default function Responsibilities({actions,setActions}:Props){
           <div className="section-label">{cat}</div>
           <div className="actions-list">
             {list.map(a=> (
-              <div key={a.id}>
-                <ActionCard action={a} onSave={saveOne} onDelete={deleteOne} />
-                <div className="action-controls" style={{gap:12,marginTop:10}}>
-                  <button className="btn btn-secondary btn-small" onClick={()=>archiveIfFinished(a)}>Archiver si terminé</button>
-                </div>
-              </div>
+              <ActionCard key={a.id} action={a} onSave={saveOne} onDelete={deleteOne} onArchive={archiveIfFinished} />
             ))}
           </div>
         </div>

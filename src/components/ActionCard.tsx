@@ -6,9 +6,10 @@ type Props = {
   onSave: (a: ActionItem)=>void
   onDelete: (id:string)=>void
   onValidate?: (id:string)=>void
+  onArchive?: (id:string)=>void
 }
 
-export default function ActionCard({action,onSave,onDelete,onValidate}:Props){
+export default function ActionCard({action,onSave,onDelete,onValidate,onArchive}:Props){
   const [editable, setEditable] = useState(false)
   const [local, setLocal] = useState(action)
 
@@ -23,16 +24,17 @@ export default function ActionCard({action,onSave,onDelete,onValidate}:Props){
         <>
           <div className="action-header">
             <div className="action-title">{action.title}</div>
-            <div className="action-meta">{action.category} • {action.urgency} {action.dueDate? '• '+new Date(action.dueDate).toLocaleDateString() : ''}</div>
           </div>
           <div className="action-badges">
-            <span className={action.urgency === 'Urgent' ? 'badge badge-urgency' : action.urgency === 'Important' ? 'badge badge-positive' : 'badge badge-normal'}>{action.urgency}</span>
             <span className="badge badge-category">{action.category}</span>
+            <span className={action.urgency === 'Urgent' ? 'badge badge-urgency' : action.urgency === 'Important' ? 'badge badge-positive' : 'badge badge-normal'}>{action.urgency}</span>
+            {action.dueDate && <span className="badge badge-date">{new Date(action.dueDate).toLocaleDateString()}</span>}
           </div>
           <div className="action-controls">
             <button className="btn btn-secondary btn-small" onClick={()=>setEditable(true)}>Modifier</button>
             <button className="btn btn-secondary btn-small" onClick={()=>onDelete(action.id)}>Supprimer</button>
             {onValidate && <button className="btn btn-primary btn-small" onClick={()=>onValidate(action.id)}>Valider</button>}
+            {onArchive && action.status === 'Terminé' && <button className="btn btn-secondary btn-small" onClick={()=>onArchive(action.id)}>Archiver</button>}
           </div>
         </>
       ) : (
