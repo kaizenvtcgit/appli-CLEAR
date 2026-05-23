@@ -70,12 +70,12 @@ a{color:inherit;text-decoration:none;}
 .form-row .text-input,
 .form-row .select{flex:1;min-width:120px;}
 .edit-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
-.bottom-nav{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;padding:10px;pointer-events:none;max-width:calc(100vw - 24px);margin:0 auto;}
-.nav-inner{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;background:var(--card);border:1px solid rgba(0,0,0,0.08);border-radius:18px;padding:8px;overflow:hidden;pointer-events:auto;}
-.nav-button{display:flex;align-items:center;justify-content:center;padding:8px 4px;border-radius:12px;color:var(--muted);font-size:11px;font-weight:600;text-decoration:none;min-height:44px;min-width:0;line-height:1.2;white-space:normal;word-break:break-word;position:relative;}
-.nav-button span{display:block;max-height:2.6em;overflow:hidden;text-overflow:ellipsis;}
+.bottom-nav{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;padding:0 0 calc(env(safe-area-inset-bottom) + 8px);pointer-events:none;max-width:calc(100vw - 24px);margin:0 auto;}
+.nav-inner{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;background:var(--card);border:1px solid rgba(0,0,0,0.08);border-radius:18px;padding:6px;overflow:hidden;pointer-events:auto;}
+.nav-button{display:flex;align-items:center;justify-content:center;padding:8px 6px;border-radius:12px;color:var(--muted);font-size:11px;font-weight:600;text-decoration:none;min-height:40px;min-width:0;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:relative;}
+.nav-button span{display:block;width:100%;overflow:hidden;text-overflow:ellipsis;}
 .nav-button.active{color:var(--primary);background:rgba(63,94,140,0.08);border:1px solid rgba(63,94,140,0.14);}
-.nav-button.active::after{content:'';position:absolute;bottom:8px;left:16px;right:16px;height:3px;border-radius:999px;background:var(--primary);}
+.nav-button.active::after{content:'';position:absolute;bottom:8px;left:50%;transform:translateX(-50%);width:24px;height:3px;border-radius:999px;background:var(--primary);}
 .nav-label{line-height:1.2;}
 .actions-list{display:flex;flex-direction:column;gap:14px;padding-bottom:140px;}
 .empty-note{font-size:14px;color:var(--muted);margin:0;}

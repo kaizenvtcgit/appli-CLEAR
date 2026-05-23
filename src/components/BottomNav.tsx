@@ -2,11 +2,11 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 const items = [
-  {to: '/', label: 'Aujourd’hui'},
-  {to: '/vide', label: 'Vide ma tête'},
-  {to: '/valider', label: 'À valider'},
-  {to: '/responsabilites', label: 'Responsabilités'},
-  {to: '/params', label: 'Paramètres'}
+  {to: '/', label: 'Jour'},
+  {to: '/vide', label: 'Vider'},
+  {to: '/valider', label: 'Valider'},
+  {to: '/responsabilites', label: 'Resp.'},
+  {to: '/params', label: 'Données'}
 ]
 
 export default function BottomNav(){
